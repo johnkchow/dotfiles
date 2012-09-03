@@ -1,0 +1,23 @@
+" Sets hamlc to haml format
+au BufRead,BufNewFile *.hamlc set ft=haml
+
+map <D-F> :Ack!<space>
+
+" Move forward/backward in the error list window
+map <F2> :cp<CR>
+map <F3> :cn<CR>
+
+" For autocompletion behavior consistent with terminal
+set wildmode=longest,list
+set wildmenu
+
+" Lists files from git + untracked files but honors gitignores
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
+
+" Sets NERDTREE to pwd
+noremap <Leader>N :execute "NERDTree ".expand("%:p:h")<cr>
+
+set nohls
+
+" Remove all trailing whitespaces when saving coffe files
+autocmd BufWritePre *.coffee :%s/\s\+$//e

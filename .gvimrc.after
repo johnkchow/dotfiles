@@ -1,0 +1,5 @@
+set gfn=Menlo\ 12
+colorscheme twilight
+if has("gui_running")
+  set guioptions-=T
+endif
