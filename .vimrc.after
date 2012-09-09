@@ -23,3 +23,8 @@ set nohls
 
 " Remove all trailing whitespaces when saving coffe files
 autocmd BufWritePre *.coffee :%s/\s\+$//e
+
+" Disable word wrap
+set wrap
+set linebreak
+set nolist  " list disables linebreak
