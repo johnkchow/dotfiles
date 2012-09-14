@@ -25,7 +25,7 @@ noremap <Leader>N :execute "NERDTree ".expand("%:p:h")<cr>
 set nohls
 
 " Remove all trailing whitespaces when saving coffee files
-autocmd BufWritePre *.coffee :%s/\s\+$//e
+autocmd BufWritePre *.coffee,*.hamlc :%s/\s\+$//e
 
 " Disable word wrap
 set wrap
