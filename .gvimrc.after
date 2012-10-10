@@ -1,5 +1,13 @@
-set gfn=Menlo\ 12
 colorscheme twilight
-if has("gui_running")
+if has("gui_gtk2")
+  " mswin has mappings for cut/copy/paste
+  " http://superuser.com/questions/10588/how-to-make-cut-copy-paste-in-gvim-on-ubuntu-work-with-ctrlx-ctrlc-ctrlv
+  source $VIMRUNTIME/mswin.vim
+  behave mswin
+  " Paste will go into append mode :)
+  set guifont=Mono\ 8
+  set lines=75 columns=180
+elseif has("gui_running")
+  set gfn=Menlo\ 12
   set guioptions-=T
 endif
