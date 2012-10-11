@@ -1,0 +1,5 @@
+if has("gui_gtk2")
+  " Load the .bashrc file, else ! commands won't work
+  " that some plugins are dependent on i.e. syntastic
+  set shell=bash\ --login
+endif
