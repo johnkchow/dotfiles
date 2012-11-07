@@ -2,3 +2,4 @@
 --type-set=hamlc=.hamlc
 --type-set=sass=.sass
 --type-set=coffee=.coffee
+--type-set=scss=.scss
