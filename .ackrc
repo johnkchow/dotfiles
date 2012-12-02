@@ -1,5 +1,5 @@
 --type-set=haml=.haml
 --type-set=hamlc=.hamlc
 --type-set=sass=.sass
---type-set=coffee=.coffee
+--type-set=coffee=.coffee,.hamlc
 --type-set=scss=.scss
