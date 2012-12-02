@@ -13,5 +13,5 @@ if has("gui_gtk2")
   " Uses ack-grep instead of ack package
   let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 elseif has("gui_running")
-  set gfn=Menlo\ 11
+  set gfn=Menlo:h10
 endif
