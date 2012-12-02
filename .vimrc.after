@@ -17,7 +17,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 " let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
 
 " Set the minimum max files, otherwise some files will not be indexed
-let g:ctrlp_max_files = 20000 "default is 10000
+let g:ctrlp_max_files = 50000 "default is 10000
 
 " Sets NERDTREE to pwd
 noremap <Leader>N :execute "NERDTree ".expand("%:p:h")<cr>
