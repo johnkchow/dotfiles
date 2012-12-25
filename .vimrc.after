@@ -1,7 +1,39 @@
-" Sets hamlc to haml format
-au BufRead,BufNewFile *.hamlc set ft=haml
-
+"#####################
+"#### ACK ####
+"#####################
 map <D-F> :Ack!<space>
+
+"#### CTRL-P ####
+" Set the minimum max files, otherwise some files will not be indexed
+let g:ctrlp_max_files = 50000 "default is 10000
+" Looks at current file, then pwd
+let g:ctrlp_working_path_mode = 'ca'
+" Ignores files, which is then honored by ctrl-p plugin
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
+
+"#####################
+"#### NERDTREE ####
+"#####################
+" Sets NERDTREE to pwd
+noremap <Leader>N :execute "NERDTree ".expand("%:p:h")<cr>
+
+
+"#####################
+"#### Regular Vim ####
+"#####################
+
+" Disable word wrap
+set wrap
+set linebreak
+set nolist  " list disables linebreak
+
+set nohls
+
+" Remove all trailing whitespaces when saving code files
+autocmd BufWritePre *.coffee,*.hamlc,*.haml,*.sass,*.rb :%s/\s\+$//e
+" Sets hamlc to haml format
+au BufRead,BufNewFile *.hamlc,*.hamlc.erb set ft=haml
 
 " Move forward/backward in the error list window
 map <F2> :cp<CR>
@@ -10,26 +42,3 @@ map <F3> :cn<CR>
 " For autocompletion behavior consistent with terminal
 set wildmode=longest,list
 set wildmenu
-
-" Looks at current file, then pwd
-let g:ctrlp_working_path_mode = 'ca'
-" Ignores files, which is then honored by ctrl-p plugin
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-" Lists files from git + untracked files but honors gitignores
-" let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
-
-" Set the minimum max files, otherwise some files will not be indexed
-let g:ctrlp_max_files = 50000 "default is 10000
-
-" Sets NERDTREE to pwd
-noremap <Leader>N :execute "NERDTree ".expand("%:p:h")<cr>
-
-set nohls
-
-" Remove all trailing whitespaces when saving coffee files
-autocmd BufWritePre *.coffee,*.hamlc :%s/\s\+$//e
-
-" Disable word wrap
-set wrap
-set linebreak
-set nolist  " list disables linebreak
