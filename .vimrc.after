@@ -7,7 +7,7 @@ map <D-F> :Ack!<space>
 " Set the minimum max files, otherwise some files will not be indexed
 let g:ctrlp_max_files = 50000 "default is 10000
 " Looks at current file, then pwd
-let g:ctrlp_working_path_mode = 'ca'
+let g:ctrlp_working_path_mode = 'ac'
 " Ignores files, which is then honored by ctrl-p plugin
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
