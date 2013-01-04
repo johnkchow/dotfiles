@@ -16,7 +16,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 "#### NERDTREE ####
 "#####################
 " Sets NERDTREE to pwd
-noremap <Leader>N :execute "NERDTree ".expand("%:p:h")<cr>
+noremap <Leader>N :execute "NERDTreeCWD"<cr>
+" Will uncollapse NerdTree to current file
+noremap <Leader>f :execute "NERDTreeFind"<cr>
 
 
 "#####################
