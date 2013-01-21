@@ -40,6 +40,7 @@ au BufRead,BufNewFile *.hamlc,*.hamlc.erb set ft=haml
 " Move forward/backward in the error list window
 map <F2> :cp<CR>
 map <F3> :cn<CR>
+map <D-r> :!ctags -R<CR>
 
 " For autocompletion behavior consistent with terminal
 set wildmode=longest,list
