@@ -3,3 +3,5 @@
 --type-set=sass=.sass
 --type-set=coffee=.coffee,.hamlc
 --type-set=scss=.scss
+--type-set=jbuilder=.jbuilder
+--type-set=erb=.erb
