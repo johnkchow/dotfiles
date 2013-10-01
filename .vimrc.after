@@ -33,7 +33,7 @@ set nolist  " list disables linebreak
 set nohls
 
 " Remove all trailing whitespaces when saving code files
-autocmd BufWritePre *.coffee,*.hamlc,*.haml,*.sass,*.rb :%s/\s\+$//e
+autocmd BufWritePre *.coffee,*.hamlc,*.haml,*.sass,*.rb,*.rake :%s/\s\+$//e
 " Sets hamlc to haml format
 au BufRead,BufNewFile *.hamlc,*.hamlc.erb set ft=haml
 
