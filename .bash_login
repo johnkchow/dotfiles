@@ -1,0 +1,13 @@
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+alias be="bundle exec"
+
+# /usr/local/bin is for ctags
+PATH=/usr/local/heroku/bin:/usr/local/bin:$PATH:$HOME/.rvm/bin:/usr/local/Cellar/nginx/1.2.3/sbin:/usr/local/sbin:/usr/local/share/npm/bin
+alias ls='ls -G'
+alias ll='ls -hl'
+export NODE_PATH=/usr/local/lib/node_modules
+
+#http://code-worrier.com/blog/git-branch-in-bash-prompt/
+source ~/.git-prompt.sh
+export PS1="\u@:\W\[\033[32m\]\$(__git_ps1)\[\033[00m\] $ "
