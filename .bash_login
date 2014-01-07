@@ -2,6 +2,8 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 alias be="bundle exec"
 
+source ~/.envprivate
+
 # /usr/local/bin is for ctags
 PATH=/usr/local/heroku/bin:/usr/local/bin:$PATH:$HOME/.rvm/bin:/usr/local/Cellar/nginx/1.2.3/sbin:/usr/local/sbin:/usr/local/share/npm/bin
 alias ls='ls -G'
