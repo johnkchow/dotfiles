@@ -5,3 +5,4 @@
 --type-set=scss=.scss
 --type-set=jbuilder=.jbuilder
 --type-set=erb=.erb
+--type-set=m=.m
