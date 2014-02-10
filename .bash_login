@@ -8,8 +8,13 @@ source ~/.envprivate
 PATH=/usr/local/heroku/bin:/usr/local/bin:$PATH:$HOME/.rvm/bin:/usr/local/Cellar/nginx/1.2.3/sbin:/usr/local/sbin:/usr/local/share/npm/bin
 alias ls='ls -G'
 alias ll='ls -hl'
+alias rgc='export RUBY_GC_MALLOC_LIMIT=90000000'
+alias norgc='unset RUBY_GC_MALLOC_LIMIT'
 export NODE_PATH=/usr/local/lib/node_modules
+
 
 #http://code-worrier.com/blog/git-branch-in-bash-prompt/
 source ~/.git-prompt.sh
 export PS1="\u@:\W\[\033[32m\]\$(__git_ps1)\[\033[00m\] $ "
+
+export PATH="$HOME/.rbenv/bin:$PATH"
