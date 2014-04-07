@@ -6,3 +6,5 @@
 --type-set=jbuilder=.jbuilder
 --type-set=erb=.erb
 --type-set=m=.m
+--ignore-directory=tmp
+--ignore-directory=log
