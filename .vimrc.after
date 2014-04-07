@@ -48,3 +48,4 @@ set wildmenu
 " Coffeescript Config
 map <D-r> :!ctags -R<CR>
 map <D-R> :!coffeetags -R -f tags<CR>
+let g:syntastic_coffee_coffeelint_args = "--csv --file ~/.coffeelint.json"
