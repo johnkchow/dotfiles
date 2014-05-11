@@ -8,4 +8,5 @@
 --type-set=m=.m
 --ignore-directory=tmp
 --ignore-directory=log
+--ignore-directory=.bundle
 --ignore-file=is:tags
