@@ -1,4 +1,3 @@
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 alias be="bundle exec"
 
@@ -6,7 +5,6 @@ source ~/.bashrc
 source ~/.envprivate
 
 # /usr/local/bin is for ctags
-PATH=/usr/local/heroku/bin:/usr/local/bin:$PATH:$HOME/.rvm/bin:/usr/local/Cellar/nginx/1.2.3/sbin:/usr/local/sbin:/usr/local/share/npm/bin
 alias ls='ls -G'
 alias ll='ls -hl'
 alias rgc='export RUBY_GC_MALLOC_LIMIT=90000000'
@@ -18,7 +16,8 @@ export NODE_PATH=/usr/local/lib/node_modules
 source ~/.git-prompt.sh
 export PS1="\u@:\W\[\033[32m\]\$(__git_ps1)\[\033[00m\] $ "
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
-eval "$(rbenv init -)"
+
+PATH=$HOME/.rbenv/bin:$PATH
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+PATH=/usr/local/heroku/bin:/usr/local/bin:./bin:$PATH:$HOME/.rbenv/bin:$HOME/.rvm/bin:/usr/local/Cellar/nginx/1.2.3/sbin:/usr/local/sbin:/usr/local/share/npm/bin
