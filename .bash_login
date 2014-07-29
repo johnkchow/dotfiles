@@ -18,6 +18,8 @@ export PS1="\u@:\W\[\033[32m\]\$(__git_ps1)\[\033[00m\] $ "
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 
+export JRUBY_OPTS="--1.9 -J-Xmn512m -J-Xms2048m -J-Xmx2048m --dev -J-XX:+UseParNewGC -J-XX:+UseConcMarkSweepGC"
+
 PATH=$HOME/.rbenv/bin:$PATH
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 PATH=/usr/local/heroku/bin:/usr/local/bin:./bin:$PATH:$HOME/.rbenv/bin:$HOME/.rvm/bin:/usr/local/Cellar/nginx/1.2.3/sbin:/usr/local/sbin:/usr/local/share/npm/bin
