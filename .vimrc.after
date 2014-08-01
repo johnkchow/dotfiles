@@ -66,5 +66,5 @@ if executable('coffeetags')
 endif
 
 if !empty(matchstr(system('rbenv local'), 'jruby'))
-  let g:syntastic_ruby_exec = "$HOME/.rbenv/versions/1.9.3/bin/ruby"
+  let g:syntastic_ruby_exec = "$HOME/.rbenv/versions/1.9.3-p545/bin/ruby"
 endif
