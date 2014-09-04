@@ -9,7 +9,7 @@ let g:ctrlp_max_files = 50000 "default is 10000
 " Sets the working directory to the pwd
 let g:ctrlp_working_path_mode = 0
 " Ignores files, which is then honored by ctrl-p plugin
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*     " MacOSX/Linux
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/*     " MacOSX/Linux
 
 
 "#####################
@@ -36,6 +36,7 @@ set nohls
 autocmd BufWritePre *.coffee,*.hamlc,*.haml,*.sass,*.rb,*.rake :%s/\s\+$//e
 " Sets hamlc to haml format
 au BufRead,BufNewFile *.hamlc,*.hamlc.erb set ft=haml
+au BufRead,BufNewFile *.hbs set ft=mustache
 
 " Move forward/backward in the error list window
 map <F2> :cp<CR>
@@ -68,3 +69,6 @@ endif
 if !empty(matchstr(system('rbenv local'), 'jruby'))
   let g:syntastic_ruby_exec = "$HOME/.rbenv/versions/1.9.3-p545/bin/ruby"
 endif
+
+
+let g:mustache_abbreviations = 1
