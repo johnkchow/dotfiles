@@ -1,3 +1,6 @@
 [submodule ".janus/vim-airline"]
 	path = .janus/vim-airline
 	url = git@github.com:bling/vim-airline.git
+[submodule ".janus/tern_for_vim"]
+	path = .janus/tern_for_vim
+	url = https://github.com/marijnh/tern_for_vim.git
