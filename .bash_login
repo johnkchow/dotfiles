@@ -24,9 +24,13 @@ PATH=$HOME/.rbenv/bin:$PATH
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 PATH=/usr/local/heroku/bin:/usr/local/bin:./bin:$PATH:$HOME/.rbenv/bin:$HOME/.rvm/bin:/usr/local/Cellar/nginx/1.2.3/sbin:/usr/local/sbin:/usr/local/share/npm/bin
 
-eval `ssh-agent -s`
-for f in `ls -d ~/.ssh/**`; do
-  if ! [[ $f =~ id_rsa$ ]]
-    then ssh-add $f >/dev/null 2>&1
-  fi
-done
+
+sa () 
+{
+  eval `ssh-agent -s`
+  for f in `ls -d ~/.ssh/**`; do
+    if ! [[ $f =~ id_rsa$ ]]
+      then ssh-add $f >/dev/null 2>&1
+    fi
+  done
+}
