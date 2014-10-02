@@ -1,5 +1,5 @@
 alias be="bundle exec"
-alias jbe="jruby -G -S"
+alias jbe="jruby -G --debug -S"
 
 source ~/.bashrc
 source ~/.envprivate
