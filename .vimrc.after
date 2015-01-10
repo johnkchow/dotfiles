@@ -50,21 +50,6 @@ set wildmenu
 map <D-r> :!ctags -R<CR>
 map <D-R> :!coffeetags -R -f tags<CR>
 let g:syntastic_coffee_coffeelint_args = "--csv --file ~/.coffeelint.json"
-if executable('coffeetags')
-  let g:tagbar_type_coffee = {
-        \ 'ctagsbin' : 'coffeetags',
-        \ 'ctagsargs' : '',
-        \ 'kinds' : [
-        \ 'f:functions',
-        \ 'o:object',
-        \ ],
-        \ 'sro' : ".",
-        \ 'kind2scope' : {
-        \ 'f' : 'object',
-        \ 'o' : 'object',
-        \ }
-        \ }
-endif
 
 if !empty(matchstr(system('rbenv local'), 'jruby'))
   let g:syntastic_ruby_exec = "$HOME/.rbenv/versions/1.9.3-p547/bin/ruby"
@@ -72,3 +57,43 @@ endif
 
 
 let g:mustache_abbreviations = 1
+
+
+" https://github.com/jstemmer/gotags
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+    \ }
+
+
+" Auto open NERDTree if there's no files initially opened
+" https://github.com/scrooloose/nerdtree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+
+" For vim-go, adds gorename
+au FileType go nmap <Leader>e <Plug>(go-rename)
