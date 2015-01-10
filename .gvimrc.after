@@ -15,19 +15,3 @@ if has("gui_gtk2")
 elseif has("gui_running")
   set gfn=Menlo:h10
 endif
-
-if executable('coffeetags')
-  let g:tagbar_type_coffee = {
-          \ 'ctagsbin' : 'coffeetags',
-          \ 'ctagsargs' : '',
-          \ 'kinds' : [
-          \ 'f:functions',
-          \ 'o:object',
-          \ ],
-          \ 'sro' : ".",
-          \ 'kind2scope' : {
-          \ 'f' : 'object',
-          \ 'o' : 'object',
-          \ }
-          \ }
-endif
