@@ -10,4 +10,5 @@
 --ignore-directory=log
 --ignore-directory=.bundle
 --ignore-file=is:tags
---ignore-dir=vendor
+--ignore-dir=.tmp
+--ignore-dir=dist
