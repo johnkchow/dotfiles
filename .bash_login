@@ -24,8 +24,12 @@ PATH=$HOME/.rbenv/bin:$PATH
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 PATH=/usr/local/heroku/bin:/usr/local/bin:./bin:$PATH:$HOME/.rbenv/bin:$HOME/.rvm/bin:/usr/local/Cellar/nginx/1.2.3/sbin:/usr/local/sbin:/usr/local/share/npm/bin
 
+export GOPATH=$HOME/projects/go
 
-sa () 
+PATH=$PATH:$GOPATH/bin
+
+
+sa ()
 {
   eval `ssh-agent -s`
   for f in `ls -d ~/.ssh/**`; do
