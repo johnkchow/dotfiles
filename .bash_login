@@ -43,3 +43,7 @@ sa ()
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+
+# For NVM
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
