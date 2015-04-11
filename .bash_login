@@ -1,8 +1,15 @@
 alias be="bundle exec"
 alias jbe="jruby -G --debug -S"
 
-source ~/.bashrc
-source ~/.envprivate
+if [ -f ~/.bashrc ]; then
+  source ~/.bashrc
+fi
+
+export GOPATH=$HOME/projects/go
+
+if [ -f ~/.envprivate ]; then
+  source ~/.envprivate
+fi
 
 # /usr/local/bin is for ctags
 alias ls='ls -G'
@@ -24,7 +31,6 @@ PATH=$HOME/.rbenv/bin:$PATH
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 PATH=/usr/local/heroku/bin:/usr/local/bin:./bin:$PATH:$HOME/.rbenv/bin:$HOME/.rvm/bin:/usr/local/Cellar/nginx/1.2.3/sbin:/usr/local/sbin:/usr/local/share/npm/bin
 
-export GOPATH=$HOME/projects/go
 
 PATH=$PATH:$GOPATH/bin
 
@@ -46,4 +52,5 @@ fi
 
 # For NVM
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
