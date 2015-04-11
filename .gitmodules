@@ -4,3 +4,6 @@
 [submodule ".janus/tern_for_vim"]
 	path = .janus/tern_for_vim
 	url = https://github.com/marijnh/tern_for_vim.git
+[submodule ".janus/taboo.vim"]
+	path = .janus/taboo.vim
+	url = git@github.com:gcmt/taboo.vim.git
