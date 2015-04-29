@@ -49,7 +49,11 @@ set wildmenu
 " Coffeescript Config
 map <D-r> :!ctags -R<CR>
 map <D-R> :!coffeetags -R -f tags<CR>
+
+" Syntastic options
 let g:syntastic_coffee_coffeelint_args = "--csv --file ~/.coffeelint.json"
+" Adds JSHint for Syntastic
+let g:syntastic_javascript_checkers = ['jsxhint']
 
 if !empty(matchstr(system('rbenv local'), 'jruby'))
   let g:syntastic_ruby_exec = "$HOME/.rbenv/versions/1.9.3-p547/bin/ruby"
@@ -97,9 +101,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " For vim-go, adds gorename
 au FileType go nmap <Leader>e <Plug>(go-rename)
-
-" Adds JSHint for Syntastic
-let g:syntastic_javascript_checkers = ['jshint']
 
 
 " Adds keyboard commands ot copy the current file
