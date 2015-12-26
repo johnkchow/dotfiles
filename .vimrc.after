@@ -16,6 +16,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/*  
 "#### NERDTREE ####
 "#####################
 " Sets NERDTREE to pwd
+noremap <Leader>n :execute "NERDTreeToggle"<cr>
 noremap <Leader>N :execute "NERDTreeCWD"<cr>
 " Will uncollapse NerdTree to current file
 noremap <Leader>f :execute "NERDTreeFind"<cr>
@@ -98,6 +99,10 @@ let g:tagbar_type_go = {
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+
+" Adds :JsonTool command to prettify JSON file
+" http://stackoverflow.com/questions/16620835/how-to-fix-json-indentation-in-vim
+command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
 
 " For vim-go, adds gorename
 au FileType go nmap <Leader>e <Plug>(go-rename)
