@@ -1,1 +1,6 @@
 --exclude=node_modules
+--exclude=*.js
+--exclude=tmp
+--exclude=vendor
+--exclude=javascripts
+--exclude=stylesheets
