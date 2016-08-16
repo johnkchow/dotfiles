@@ -20,9 +20,11 @@ alias norgc='unset RUBY_GC_MALLOC_LIMIT'
 export NODE_PATH=/usr/local/lib/node_modules
 
 
-#http://code-worrier.com/blog/git-branch-in-bash-prompt/
-source ~/.git-prompt.sh
-export PS1="\u@:\W\[\033[32m\]\$(__git_ps1)\[\033[00m\] $ "
+# First run `brew install bash-git-prompt`
+if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
+    GIT_PROMPT_THEME=Default
+    source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+fi
 
 if [ -f "/usr/libexec/java_home" ]; then
   export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
