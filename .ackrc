@@ -6,6 +6,7 @@
 --type-set=jbuilder=.jbuilder
 --type-set=erb=.erb
 --type-set=m=.m
+--type-set=slim=.slim
 --ignore-directory=tmp
 --ignore-directory=log
 --ignore-directory=.bundle
