@@ -24,7 +24,9 @@ export NODE_PATH=/usr/local/lib/node_modules
 source ~/.git-prompt.sh
 export PS1="\u@:\W\[\033[32m\]\$(__git_ps1)\[\033[00m\] $ "
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+if [ -f "/usr/libexec/java_home" ]; then
+  export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+fi
 
 export JRUBY_OPTS="--1.9 -J-Xmn512m -J-Xms2048m -J-Xmx2048m --dev -J-XX:+UseParNewGC -J-XX:+UseConcMarkSweepGC"
 
