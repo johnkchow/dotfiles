@@ -21,6 +21,13 @@ noremap <Leader>N :execute "NERDTreeCWD"<cr>
 " Will uncollapse NerdTree to current file
 noremap <Leader>f :execute "NERDTreeFind"<cr>
 
+"####################
+"#### matchit ####
+"####################
+
+" Allows `%` key to switch open/close tokens for languages
+runtime macros/matchit.vim
+
 
 "#####################
 "#### Regular Vim ####
@@ -55,6 +62,7 @@ map <D-R> :!coffeetags -R -f tags<CR>
 let g:syntastic_coffee_coffeelint_args = "--csv --file ~/.coffeelint.json"
 " Adds JSHint for Syntastic
 let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
 if !empty(matchstr(system('rbenv local'), 'jruby'))
   let g:syntastic_ruby_exec = "$HOME/.rbenv/versions/1.9.3-p547/bin/ruby"
