@@ -42,9 +42,9 @@ PATH=$PATH:$GOPATH/bin
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Node section
-export NODE_PATH=/usr/local/lib/node_modules
-export NVM_DIR=~/.nvm
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+# NOTE: First run `brew install nvm`
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
 sa ()
 {
