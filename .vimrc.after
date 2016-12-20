@@ -9,7 +9,7 @@ let g:ctrlp_max_files = 50000 "default is 10000
 " Sets the working directory to the pwd
 let g:ctrlp_working_path_mode = 0
 " Ignores files, which is then honored by ctrl-p plugin
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/*     " MacOSX/Linux
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/*,*/test/reports/*     " MacOSX/Linux
 
 
 "#####################
