@@ -60,8 +60,8 @@ map <D-R> :!coffeetags -R -f tags<CR>
 
 " Syntastic options
 let g:syntastic_coffee_coffeelint_args = "--csv --file ~/.coffeelint.json"
-" Adds JSHint for Syntastic
-let g:syntastic_javascript_checkers = ['jsxhint']
+" Adds eslint for Syntastic
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
 if !empty(matchstr(system('rbenv local'), 'jruby'))
