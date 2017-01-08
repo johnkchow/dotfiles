@@ -13,9 +13,6 @@ alias jbe="jruby -G --debug -S"
 alias fsd="be foreman start -f Procfile.dev"
 alias ls='ls -G'
 alias ll='ls -hl'
-alias rgc='export RUBY_GC_MALLOC_LIMIT=90000000'
-alias norgc='unset RUBY_GC_MALLOC_LIMIT'
-
 
 # First run `brew install bash-git-prompt`
 if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
@@ -33,7 +30,7 @@ if [ -f "/usr/libexec/java_home" ]; then
   export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 fi
 
-export JRUBY_OPTS="--1.9 -J-Xmn512m -J-Xms2048m -J-Xmx2048m --dev -J-XX:+UseParNewGC -J-XX:+UseConcMarkSweepGC"
+export JRUBY_OPTS="-J-Xmn512m -J-Xms2048m -J-Xmx2048m --dev -J-XX:+UseParNewGC -J-XX:+UseConcMarkSweepGC"
 
 # NOTE: /usr/local/bin is for ctags
 PATH=/usr/local/heroku/bin:/usr/local/bin:$HOME/.rbenv/bin:$HOME/.rvm/bin:/usr/local/sbin:/usr/local/share/npm/bin:$PATH
@@ -46,6 +43,9 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
+# Disables session suspend so that we can use CTRL+s to go back in history search
+stty -ixon
+
 sa ()
 {
   eval `ssh-agent -s`
@@ -54,4 +54,9 @@ sa ()
       then ssh-add $f >/dev/null 2>&1
     fi
   done
+}
+
+pruneMerged()
+{
+  git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
 }
