@@ -10,3 +10,6 @@
 [submodule ".janus/vim-dispatch"]
 	path = .janus/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch
+[submodule ".janus/neocomplete.vim"]
+	path = .janus/neocomplete.vim
+	url = https://github.com/Shougo/neocomplete.vim.git
