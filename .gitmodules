@@ -7,3 +7,6 @@
 [submodule ".janus/taboo.vim"]
 	path = .janus/taboo.vim
 	url = git@github.com:gcmt/taboo.vim.git
+[submodule ".janus/vim-dispatch"]
+	path = .janus/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
