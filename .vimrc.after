@@ -9,7 +9,10 @@ let g:ctrlp_max_files = 50000 "default is 10000
 " Sets the working directory to the pwd
 let g:ctrlp_working_path_mode = 0
 " Ignores files, which is then honored by ctrl-p plugin
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/bower_components/*,*/test/reports/*     " MacOSX/Linux
+set wildignore+=*.so,*.swp,*/node_modules/*,*/bower_components/*     " MacOSX/Linux
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|tmp$\|bower_components$\|dist$\|node_modules$\|test\/reports$\|vendor\/.*$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$\|.zip$' }
 
 
 "#####################
@@ -49,7 +52,7 @@ au BufRead,BufNewFile *.hbs set ft=mustache
 " Move forward/backward in the error list window
 map <F2> :cp<CR>
 map <F3> :cn<CR>
-map <D-r> :!ctags -R<CR>
+map <D-r> :Dispatch ctags -R<CR>
 map <Leader>T :tabc<CR>
 
 " For autocompletion behavior consistent with terminal
@@ -114,3 +117,6 @@ command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
 
 " For vim-go, adds gorename
 au FileType go nmap <Leader>e <Plug>(go-rename)
+
+" Enables neocomplete for go
+let g:neocomplete#enable_at_startup = 1
