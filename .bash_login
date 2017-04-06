@@ -8,11 +8,13 @@ if [ -f ~/.envprivate ]; then
   source ~/.envprivate
 fi
 
+alias mvimt="mvim --remote-tab-silent"
 alias be="bundle exec"
 alias jbe="jruby -G --debug -S"
 alias fsd="be foreman start -f Procfile.dev"
 alias ls='ls -G'
 alias ll='ls -hl'
+alias bers="DISABLE_SPRING=1 be rails s -b 127.0.0.1"
 
 # First run `brew install bash-git-prompt`
 if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
@@ -62,6 +64,7 @@ pruneMerged()
   git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
 }
 
+
 # Requires fzf `brew install fzf`
 fbl() {
   local branches branch
@@ -70,10 +73,21 @@ fbl() {
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
+fbcl() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  echo "$branch" | awk '{print $1}' | sed "s/.* //" | tr -d '\n' | pbcopy
+}
+
 fbr() {
   local branches branch
   branches=$(git branch --all | grep -v HEAD) &&
   branch=$(echo "$branches" |
            fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+cb() {
+  echo $(git rev-parse --abbrev-ref HEAD | tr -d '\n')
 }
