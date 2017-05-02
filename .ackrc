@@ -13,5 +13,6 @@
 --ignore-directory=vendor
 --ignore-directory=node_modules
 --ignore-file=is:tags
+--ignore-file=is:.byebug_history
 --ignore-dir=.tmp
 --ignore-dir=dist
