@@ -91,3 +91,7 @@ fbr() {
 cb() {
   echo $(git rev-parse --abbrev-ref HEAD | tr -d '\n')
 }
+
+notify() {
+  terminal-notifier -message "$1" -sound default -title ${2:-Notifier}
+}

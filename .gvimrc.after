@@ -1,5 +1,9 @@
 colorscheme twilight
+" Set highlighted color for locatino window
+hi QuickFixLine term=reverse ctermfg=0 ctermbg=14 gui=bold guifg=#606000 guibg=#c0c000
+
 set guioptions-=T  "remove toolbar
+
 if has("gui_gtk2")
   " mswin has mappings for cut/copy/paste
   " http://superuser.com/questions/10588/how-to-make-cut-copy-paste-in-gvim-on-ubuntu-work-with-ctrlx-ctrlc-ctrlv
