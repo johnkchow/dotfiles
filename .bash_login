@@ -95,3 +95,11 @@ cb() {
 notify() {
   terminal-notifier -message "$1" -sound default -title ${2:-Notifier}
 }
+
+cleanupLocalBranches() {
+  git fetch -p &&  # fetch remotes + prune
+    git branch -r | egrep "^\s*origin/.*" | awk '{print $1}' | # only get remotes from origin
+    grep -v -f /dev/fd/0 <(git branch -vv) > /tmp/missing-branches && # filter for local branches that don't have a remote branch
+    vim /tmp/missing-branches && # allow editing of branches to be deleted
+    cat /tmp/missing-branches | awk '{print $1}' | xargs git branch -D # delete branches
+}
