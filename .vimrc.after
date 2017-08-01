@@ -52,7 +52,7 @@ au BufRead,BufNewFile *.hbs set ft=mustache
 " Move forward/backward in the error list window
 map <F2> :cp<CR>
 map <F3> :cn<CR>
-map <D-r> :Dispatch ctags -R<CR>
+map <D-r> :Dispatch! ctags -R<CR>
 map <Leader>T :tabc<CR>
 
 " For autocompletion behavior consistent with terminal
