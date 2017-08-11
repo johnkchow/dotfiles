@@ -13,3 +13,9 @@
 [submodule ".janus/neocomplete.vim"]
 	path = .janus/neocomplete.vim
 	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule ".janus/vim-jsx"]
+	path = .janus/vim-jsx
+	url = https://github.com/mxw/vim-jsx.git
+[submodule ".janus/vim-rhubarb"]
+	path = .janus/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb.git
