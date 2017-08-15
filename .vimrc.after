@@ -123,3 +123,6 @@ au FileType go nmap <Leader>e <Plug>(go-rename)
 
 " Enables neocomplete for go
 let g:neocomplete#enable_at_startup = 1
+
+" vim-jsx: enables jsx for .js file extensions
+let g:jsx_ext_required = 0
