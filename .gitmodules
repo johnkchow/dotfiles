@@ -19,3 +19,6 @@
 [submodule ".janus/vim-rhubarb"]
 	path = .janus/vim-rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
+[submodule ".janus/vim-flow"]
+	path = .janus/vim-flow
+	url = git://github.com/flowtype/vim-flow.git
