@@ -51,3 +51,6 @@ if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
   " directory name (/something/src)
   nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
 endif
+
+" Disables bell sound e.g. when pressing esc multiple times
+set visualbell t_vb=
