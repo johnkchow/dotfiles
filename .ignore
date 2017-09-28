@@ -1,0 +1,11 @@
+tmp
+.tmp
+log
+.bundle
+vendor
+node_modules
+flow-typed
+tags
+.byebug_history
+dist
+.git
