@@ -31,6 +31,9 @@
 [submodule ".janus/nvim-yarp"]
 	path = .janus/nvim-yarp
 	url = https://github.com/roxma/nvim-yarp
+[submodule ".janus/echodoc.vim"]
+	path = .janus/echodoc.vim
+	url = https://github.com/Shougo/echodoc.vim
 [submodule ".janus/vim-flow"]
 	path = .janus/vim-flow
 	url = git://github.com/flowtype/vim-flow.git
