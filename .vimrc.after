@@ -128,14 +128,18 @@ command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
 " For vim-go, adds gorename
 au FileType go nmap <Leader>e <Plug>(go-rename)
 
-" Enables neocomplete for go
-let g:neocomplete#enable_at_startup = 1
-
 " vim-jsx: enables jsx for .js file extensions
 let g:jsx_ext_required = 0
 
+" ##### vim-flow #####
+" disable vim-flow's quickfix so that ale will handle error
+let g:flow#showquickfix = 0
+
+" ##### ale #####
 let g:airline#extensions#ale#enabled = 1
 let g:ale_open_list = 'on_save'
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
+" Debounce 1000ms on text change before running linters
+let g:ale_lint_delay = 1000

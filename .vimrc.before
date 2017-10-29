@@ -15,4 +15,7 @@ if executable(local_flow)
   let g:flow#flowpath = local_flow
 endif
 
-let g:ale_emit_conflict_warnings = 0
+call janus#disable_plugin('syntastic', "Using ale instead")
+
+" Enables deoplete
+let g:deoplete#enable_at_startup = 1
