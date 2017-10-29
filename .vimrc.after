@@ -74,7 +74,7 @@ if executable('node_modules/.bin/eslint')
 endif
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:syntastic_mode_map = { 'mode': 'passive' }
 
 if !empty(matchstr(system('rbenv local'), 'jruby'))
   let g:syntastic_ruby_exec = "$HOME/.rbenv/versions/1.9.3-p547/bin/ruby"
@@ -133,3 +133,9 @@ let g:neocomplete#enable_at_startup = 1
 
 " vim-jsx: enables jsx for .js file extensions
 let g:jsx_ext_required = 0
+
+let g:airline#extensions#ale#enabled = 1
+let g:ale_open_list = 'on_save'
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}

@@ -14,3 +14,5 @@ endif
 if executable(local_flow)
   let g:flow#flowpath = local_flow
 endif
+
+let g:ale_emit_conflict_warnings = 0
