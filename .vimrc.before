@@ -4,7 +4,7 @@ if has("gui_gtk2")
   set shell=bash\ --login
 endif
 
-"###### vim-flow ######
+"##### vim-flow #####
 
 "Use locally installed flow
 let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
@@ -17,5 +17,15 @@ endif
 
 call janus#disable_plugin('syntastic', "Using ale instead")
 
-" Enables deoplete
+" ##### deoplete #####
 let g:deoplete#enable_at_startup = 1
+
+
+" ##### ale #####
+let g:airline#extensions#ale#enabled = 1
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_open_list = 'on_save'
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}

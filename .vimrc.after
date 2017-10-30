@@ -134,12 +134,3 @@ let g:jsx_ext_required = 0
 " ##### vim-flow #####
 " disable vim-flow's quickfix so that ale will handle error
 let g:flow#showquickfix = 0
-
-" ##### ale #####
-let g:airline#extensions#ale#enabled = 1
-let g:ale_open_list = 'on_save'
-let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\}
-" Debounce 1000ms on text change before running linters
-let g:ale_lint_delay = 1000
