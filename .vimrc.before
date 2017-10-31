@@ -20,7 +20,6 @@ call janus#disable_plugin('syntastic', "Using ale instead")
 " ##### deoplete #####
 let g:deoplete#enable_at_startup = 1
 
-
 " ##### ale #####
 let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_text_changed = 'normal'
@@ -29,3 +28,9 @@ let g:ale_open_list = 'on_save'
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
+
+" ##### vim-javascript #####
+" enable flow syntax highlighting
+let g:javascript_plugin_flow = 1
+" enables jsdoc highlighting
+let g:javascript_plugin_jsdoc = 1
