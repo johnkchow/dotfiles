@@ -3,7 +3,7 @@
 "#####################
 map <D-F> :Ack!<space>
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+  let g:ackprg = 'ag --vimgrep --path-to-ignore ~/.agignore'
 endif
 
 "#### CTRL-P ####
@@ -14,10 +14,11 @@ let g:ctrlp_working_path_mode = 0
 " Ignores files, which is then honored by ctrl-p plugin
 set wildignore+=*.so,*.swp,*/node_modules/*,*/bower_components/*     " MacOSX/Linux
 if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --path-to-ignore ~/.ignore -g ""'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --path-to-ignore ~/.agignore -g ""'
+  let g:ctrlp_use_caching = 0
 endif
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|tmp$\|app\/components\/.*$\|flow-typed$\|bower_components$\|dist$\|node_modules$\|test\/reports$\|vendor\/.*$|client\/app\/components\/.*$',
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|tmp$\|flow-typed$\|bower_components$\|dist$\|node_modules$\|test\/reports$\|vendor\/.*$',
     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$\|.zip$' }
 
 
