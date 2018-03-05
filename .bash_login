@@ -2,6 +2,11 @@ if [ -f ~/.bashrc ]; then
   source ~/.bashrc
 fi
 
+# First run `bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)`
+if [ -f ~/.gvm/scripts/gvm ]; then
+  source ~/.gvm/scripts/gvm
+fi
+
 export GOPATH=$HOME/code/golang
 
 if [ -f ~/.envprivate ]; then
