@@ -37,3 +37,6 @@
 [submodule ".janus/vim-flow"]
 	path = .janus/vim-flow
 	url = git://github.com/flowtype/vim-flow.git
+[submodule ".janus/vim-go"]
+	path = .janus/vim-go
+	url = https://github.com/fatih/vim-go.git
