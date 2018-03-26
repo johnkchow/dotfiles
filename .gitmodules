@@ -40,3 +40,6 @@
 [submodule ".janus/vim-go"]
 	path = .janus/vim-go
 	url = https://github.com/fatih/vim-go.git
+[submodule ".janus/fzf.vim"]
+	path = .janus/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
