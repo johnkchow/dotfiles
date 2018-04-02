@@ -43,3 +43,6 @@
 [submodule ".janus/fzf.vim"]
 	path = .janus/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule ".janus/deoplete-go"]
+	path = .janus/deoplete-go
+	url = https://github.com/zchee/deoplete-go
