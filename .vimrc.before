@@ -14,16 +14,18 @@ endif
 if executable(local_flow)
   let g:flow#flowpath = local_flow
 endif
-
-call janus#disable_plugin('syntastic', "Using ale instead")
-noremap <Leader>d :let b:deoplete_disable_auto_complete = 1<cr>
-noremap <Leader>D :let b:deoplete_disable_auto_complete = 0<cr>
+" disable vim-flow's quickfix so that ale will handle error
+let g:flow#showquickfix = 0
 
 " ##### deoplete #####
 let g:deoplete#enable_at_startup = 1
+noremap <Leader>d :let b:deoplete_disable_auto_complete = 1<cr>
+noremap <Leader>D :let b:deoplete_disable_auto_complete = 0<cr>
 
 
 " ##### ale #####
+call janus#disable_plugin('syntastic', "Using ale instead")
+
 let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
