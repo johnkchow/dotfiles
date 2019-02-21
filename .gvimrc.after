@@ -16,6 +16,16 @@ if has("gui_gtk2")
 
   " Uses ack-grep instead of ack package
   let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+elseif has('mac')
+  " http://springest.io/vim-font-size-depending-screen-size
+  "
+  " Set font size based on screen size. When vertical height is greater than 900
+  " (i.e. an external monitor is attached on 13" or smaller MacBooks), use 18, else use 16.
+  if system("osascript -e 'tell application \"Finder\" to get bounds of window of desktop' | cut -d ' ' -f 4") > 900
+    set gfn=Menlo:h12
+  else
+    set gfn=Menlo:h10
+  endif
 elseif has("gui_running")
   set gfn=Menlo:h10
 endif

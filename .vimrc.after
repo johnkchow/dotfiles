@@ -12,7 +12,7 @@ let g:ctrlp_max_files = 50000 "default is 10000
 " Sets the working directory to the pwd
 let g:ctrlp_working_path_mode = 0
 " Ignores files, which is then honored by ctrl-p plugin
-set wildignore+=*.so,*.swp,*/node_modules/*,*/bower_components/*     " MacOSX/Linux
+set wildignore+=*.so,*.swp,*/bower_components/*     " MacOSX/Linux
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor --path-to-ignore ~/.agignore -g ""'
   let g:ctrlp_use_caching = 0

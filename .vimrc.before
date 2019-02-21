@@ -19,8 +19,8 @@ let g:flow#showquickfix = 0
 
 " ##### deoplete #####
 let g:deoplete#enable_at_startup = 1
-noremap <Leader>d :let b:deoplete_disable_auto_complete = 1<cr>
-noremap <Leader>D :let b:deoplete_disable_auto_complete = 0<cr>
+noremap <Leader>d :call deoplete#custom#option('auto_complete', v:false)<cr>
+noremap <Leader>D :call deoplete#custom#option('auto_complete', v:true)<cr>
 
 
 " ##### ale #####
@@ -38,6 +38,11 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
+
+augroup CloseLoclistWindowGroup
+  autocmd!
+  autocmd QuitPre * if empty(&buftype) | lclose | endif
+augroup END
 
 " ##### vim-javascript #####
 " enable flow syntax highlighting
@@ -60,3 +65,9 @@ let g:disable_markdown_autostyle = 1
 
 " ##### indentLine #####
 let g:indentLine_enabled = 0
+
+" ##### Tsuquyomi #####
+let g:tsuquyomi_disable_quickfix = 1 " Disables quick fix since Ale already does this
+
+" ##### vim-polyglot #####
+let g:polyglot_disabled = ['typescript'] " Disable vim-polyglot's typescript syntax higlighting to use vim-typescript instead
