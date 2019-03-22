@@ -118,3 +118,9 @@ let g:jsx_ext_required = 0
 let g:buffergator_autoexpand_on_split = 0
 let g:buffergator_viewport_split_policy = 'B'
 let g:buffergator_sort_regime = 'mru'
+
+
+" ##### Taboo ######
+
+" Tabs will also be saved in sessions
+set sessionoptions+=tabpages,globals
