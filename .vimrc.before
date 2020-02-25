@@ -4,23 +4,11 @@ if has("gui_gtk2")
   set shell=bash\ --login
 endif
 
-"##### vim-flow #####
-
-"Use locally installed flow
-let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
-if matchstr(local_flow, "^\/\\w") == ''
-    let local_flow= getcwd() . "/" . local_flow
-endif
-if executable(local_flow)
-  let g:flow#flowpath = local_flow
-endif
-" disable vim-flow's quickfix so that ale will handle error
-let g:flow#showquickfix = 0
 
 " ##### deoplete #####
-let g:deoplete#enable_at_startup = 1
-noremap <Leader>d :call deoplete#custom#option('auto_complete', v:false)<cr>
-noremap <Leader>D :call deoplete#custom#option('auto_complete', v:true)<cr>
+" let g:deoplete#enable_at_startup = 0
+" noremap <Leader>d :call deoplete#custom#option('auto_complete', v:false)<cr>
+" noremap <Leader>D :call deoplete#custom#option('auto_complete', v:true)<cr>
 
 
 " ##### ale #####
@@ -31,11 +19,12 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_insert_enter = 0
 let g:ale_lint_on_save = 1
-let g:ale_open_list = 'on_save'
+let g:ale_open_list = 0
 let g:ale_linters = {
 \   'ruby': ['rubocop', 'ruby'],
 \}
 let g:ale_fixers = {
+\   'ruby': ['rubocop'],
 \   'javascript': ['eslint'],
 \}
 
@@ -50,10 +39,6 @@ let g:javascript_plugin_flow = 1
 " enables jsdoc highlighting
 let g:javascript_plugin_jsdoc = 1
 
-
-" ##### fzf #####
-" enables basic fzf functionality from fzf homebrew installation
-set rtp+=/usr/local/opt/fzf
 
 " ##### vim-markdown #####
 let g:markdown_fenced_languages = ['ruby', 'html', 'javascript']
@@ -70,4 +55,9 @@ let g:indentLine_enabled = 0
 let g:tsuquyomi_disable_quickfix = 1 " Disables quick fix since Ale already does this
 
 " ##### vim-polyglot #####
-let g:polyglot_disabled = ['typescript'] " Disable vim-polyglot's typescript syntax higlighting to use vim-typescript instead
+let g:polyglot_disabled = ['go', 'golang'] " Disable vim-polyglot's typescript syntax higlighting to use vim-typescript instead
+
+call janus#disable_plugin('ctrlp', "Using fzf")
+set rtp+=/usr/local/opt/fzf
+
+let g:airline#extensions#branch#enabled = 0

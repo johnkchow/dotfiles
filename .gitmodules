@@ -55,3 +55,15 @@
 [submodule ".janus/vim-jsx-typescript"]
 	path = .janus/vim-jsx-typescript
 	url = https://github.com/peitalin/vim-jsx-typescript.git
+[submodule ".janus/vim-obsession"]
+	path = .janus/vim-obsession
+	url = https://github.com/tpope/vim-obsession
+[submodule ".janus/vim-graphql"]
+	path = .janus/vim-graphql
+	url = https://github.com/jparise/vim-graphql.git
+[submodule ".janus/sorbet-lsp"]
+	path = .janus/sorbet-lsp
+	url = https://github.com/zackhsi/sorbet-lsp.git
+[submodule ".janus/coc.nvim"]
+	path = .janus/coc.nvim
+	url = https://github.com/neoclide/coc.nvim

@@ -14,14 +14,16 @@ if [ -f ~/.gvm/scripts/gvm ]; then
   source ~/.gvm/scripts/gvm
 fi
 
-# Override the gvm's GOPATH
-export GOPATH=$HOME/code/golang
-PATH=$GOPATH/bin:$PATH
 
 # Node section
 # NOTE: First run `brew install nvm`
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+if [ -f /usr/local/opt/nvm/nvm.sh ]; then
+  . "/usr/local/opt/nvm/nvm.sh"
+fi
+
+# NOTE: First run `brew install nodenv`
+eval "$(nodenv init -)"
 
 
 # First run `brew install bash-git-prompt`
@@ -53,6 +55,7 @@ alias fsd="be foreman start -f Procfile.dev"
 alias ls='ls -G'
 alias ll='ls -hl'
 alias bers="DISABLE_SPRING=true be rails s -b 127.0.0.1"
+alias ag="ag --noheading --nobreak"
 
 export ANDROID_SDK=/Users/johnkchow/Library/Android/sdk
 export PATH=/Users/johnkchow/Library/Android/sdk/platform-tools:$PATH
@@ -68,18 +71,19 @@ sa ()
 }
 
 # Requires fzf `brew install fzf`
-fbl() {
+fb() {
   local branches branch
   branches=$(git branch -vv) &&
   branch=$(echo "$branches" | fzf +m) &&
-  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+  echo "$branch" | awk '{print $1}' | sed "s/.* //"
+}
+
+fbl() {
+  git checkout $(fb)
 }
 
 fbcl() {
-  local branches branch
-  branches=$(git branch -vv) &&
-  branch=$(echo "$branches" | fzf +m) &&
-  echo "$branch" | awk '{print $1}' | sed "s/.* //" | tr -d '\n' | pbcopy
+  echo $(fb) | pbcopy
 }
 
 fbr() {
@@ -94,14 +98,26 @@ cb() {
   echo $(git rev-parse --abbrev-ref HEAD | tr -d '\n')
 }
 
+gpu() {
+  git push origin $(cb)
+}
+
 notify() {
   terminal-notifier -message "$1" -sound default -title ${2:-Notifier}
 }
 
+agrl() {
+  ag "$@" --ruby --color | less -R
+}
+
 cleanupLocalBranches() {
+  TMPFILE=${TMPDIR}missing-branches
+  cat <<EOT > $TMPFILE
+# NOTE: Remove any lines that you want to **KEEP**
+EOT
   git fetch -p &&  # fetch remotes + prune
     git branch -r | egrep "^\s*origin/.*" | awk '{print $1}' | # only get remotes from origin
-    grep -v -f /dev/fd/0 <(git branch -vv) > /tmp/missing-branches && # filter for local branches that don't have a remote branch
-    vim /tmp/missing-branches && # allow editing of branches to be deleted
-    cat /tmp/missing-branches | awk '{print $1}' | xargs git branch -D # delete branches
+    grep -v -f /dev/fd/0 <(git branch -vv) >> $TMPFILE && # filter for local branches that don't have a remote branch
+    vim -c "set syntax=gitcommit" $TMPFILE && # allow editing of branches to be deleted
+    cat $TMPFILE | grep -v "^#" | awk '{print $1}' | xargs git branch -D # delete branches
 }

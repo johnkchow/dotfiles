@@ -21,7 +21,7 @@ elseif has('mac')
   "
   " Set font size based on screen size. When vertical height is greater than 900
   " (i.e. an external monitor is attached on 13" or smaller MacBooks), use 18, else use 16.
-  if system("osascript -e 'tell application \"Finder\" to get bounds of window of desktop' | cut -d ' ' -f 4") > 900
+  if system("osascript -e 'tell application \"Finder\" to get bounds of window of desktop' | cut -d ' ' -f 4") >= 900
     set gfn=Menlo:h12
   else
     set gfn=Menlo:h10

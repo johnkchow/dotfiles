@@ -1,25 +1,32 @@
 "#####################
 "#### ACK ####
 "#####################
-map <D-F> :Ack!<space>
-if executable('ag')
+nmap <D-f> :Ack! -g "!**/test*/**" -g "!*.test.js"<space>
+nmap <D-F> :Ack!<space>
+
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep --no-heading --ignore-file ~/.agignore'
+elseif executable('ag')
   let g:ackprg = 'ag --vimgrep --path-to-ignore ~/.agignore'
 endif
 
-"#### CTRL-P ####
-" Set the minimum max files, otherwise some files will not be indexed
-let g:ctrlp_max_files = 50000 "default is 10000
-" Sets the working directory to the pwd
-let g:ctrlp_working_path_mode = 0
-" Ignores files, which is then honored by ctrl-p plugin
-set wildignore+=*.so,*.swp,*/bower_components/*     " MacOSX/Linux
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --path-to-ignore ~/.agignore -g ""'
-  let g:ctrlp_use_caching = 0
+"##### fzf.vim ####
+if executable('rg')
+  let $FZF_DEFAULT_COMMAND = 'rg --files --ignore-file ~/.ignore-fzf'
+elseif executable('ag')
+  let $FZF_DEFAULT_COMMAND = 'ag -l --nocolor --path-to-ignore ~/.ignore-fzf -g ""'
 endif
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|tmp$\|flow-typed$\|bower_components$\|dist$\|node_modules$\|test\/reports$\|vendor\/.*$',
-    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$\|.zip$' }
+" Because fzf.vim uses the :terminal command, we want to change the terminal
+" window key from the default ctrl-w; otherwise ctrl-w wouldn't delete the
+" word
+set termwinkey=<C-L>
+" This enables browsing past search queries via CTRL-P and CTRL-N
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+map <D-t> :FZF <CR>
+map <D-p> :call fzf#run({'source': $FZF_DEFAULT_COMMAND . ' -g "!**/test/**" -g "!*.test.js"', 'sink': 'e', 'down': '~40%' }) <CR>
+map <Leader>B :Buffers<CR>
+map <Leader>P :FZF <C-R>=expand('%:h')<CR>
+map <Leader>p :FZF <C-R>=expand('$PWD')<CR><CR>
 
 
 "#####################
@@ -52,9 +59,7 @@ set nohls
 
 " Remove all trailing whitespaces when saving code files
 autocmd BufWritePre *.coffee,*.hamlc,*.haml,*.sass,*.rb,*.rake :%s/\s\+$//e
-" Sets hamlc to haml format
-au BufRead,BufNewFile *.hamlc,*.hamlc.erb set ft=haml
-au BufRead,BufNewFile *.hbs set ft=mustache
+autocmd BufNewFile,BufRead *.flow set syntax=javascript
 
 " Move forward/backward in the error list window
 map <F2> :cp<CR>
@@ -98,18 +103,19 @@ let g:tagbar_type_go = {
     \ }
 
 
-" Auto open NERDTree if there's no files initially opened
-" https://github.com/scrooloose/nerdtree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 
 " Adds :JsonTool command to prettify JSON file
 " http://stackoverflow.com/questions/16620835/how-to-fix-json-indentation-in-vim
 command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
 
-" For vim-go, adds gorename
+" ###### vim-go ######
+
+" adds gorename
 au FileType go nmap <Leader>e <Plug>(go-rename)
+
+" Fixes autocompletion issue w/ `gopls`
+" https://github.com/fatih/vim-go/issues/2193
+au FileType go setlocal omnifunc=go#complete#GocodeComplete
 
 " vim-jsx: enables jsx for .js file extensions
 let g:jsx_ext_required = 0
@@ -118,9 +124,60 @@ let g:jsx_ext_required = 0
 let g:buffergator_autoexpand_on_split = 0
 let g:buffergator_viewport_split_policy = 'B'
 let g:buffergator_sort_regime = 'mru'
-
+let g:buffergator_show_full_directory_path = 0
 
 " ##### Taboo ######
 
 " Tabs will also be saved in sessions
 set sessionoptions+=tabpages,globals
+
+
+" ###### ALE ######
+
+" NOTE: This only works after plugin is loaded, so cannot add this to
+" .vimrc.before
+nmap <leader>d <Plug>(ale_go_to_definition)
+nmap <leader>D :ALEStopAllLSPs<CR>
+nmap <leader>F :ALEFix<CR>
+nmap <leader>h :ALEHover<CR>
+
+" ##### coc.nvim #####
+" " don't give |ins-completion-menu| messages in the message buffer
+set shortmess+=c
+
+" Better display for messages
+set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+
+function! SourceIfExists(file)
+  if filereadable(expand(a:file))
+    exe 'source' a:file
+  endif
+endfunction
+
+call SourceIfExists("~/.vimrc.private")
