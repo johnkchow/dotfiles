@@ -67,3 +67,6 @@
 [submodule ".janus/coc.nvim"]
 	path = .janus/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
+[submodule ".janus/ack.vim"]
+	path = .janus/ack.vim
+	url = git@github.com:mileszs/ack.vim.git
