@@ -4,14 +4,8 @@ if has("gui_gtk2")
   set shell=bash\ --login
 endif
 
-
-" ##### deoplete #####
-" let g:deoplete#enable_at_startup = 0
-" noremap <Leader>d :call deoplete#custom#option('auto_complete', v:false)<cr>
-" noremap <Leader>D :call deoplete#custom#option('auto_complete', v:true)<cr>
-
-
 " ##### ale #####
+call janus#disable_plugin('supertab', "Using coc.nvim instead")
 call janus#disable_plugin('syntastic', "Using ale instead")
 
 let g:airline#extensions#ale#enabled = 1
@@ -51,9 +45,6 @@ let g:disable_markdown_autostyle = 1
 " ##### indentLine #####
 let g:indentLine_enabled = 0
 
-" ##### Tsuquyomi #####
-let g:tsuquyomi_disable_quickfix = 1 " Disables quick fix since Ale already does this
-
 " ##### vim-polyglot #####
 let g:polyglot_disabled = ['go', 'golang'] " Disable vim-polyglot's typescript syntax higlighting to use vim-typescript instead
 
@@ -61,3 +52,15 @@ call janus#disable_plugin('ctrlp', "Using fzf")
 set rtp+=/usr/local/opt/fzf
 
 let g:airline#extensions#branch#enabled = 0
+
+"#####################
+"#### ACK ####
+"#####################
+nmap <D-f> :Ack! -g "!**/test*/**" -g "!*.test.js"<space>
+nmap <D-F> :Ack!<space>
+
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep --no-heading --ignore-file ~/.agignore'
+elseif executable('ag')
+  let g:ackprg = 'ag --vimgrep --path-to-ignore ~/.agignore'
+endif
