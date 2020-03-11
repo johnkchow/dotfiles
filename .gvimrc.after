@@ -45,6 +45,13 @@ if has("mac") || has("gui_macvim") || has("gui_mac")
 
   " directory name (/something/src)
   nnoremap <leader>ch :let @*=expand("%:p:h")<CR>
+
+
+  macm File.Open\ Tab\.\.\.<Tab>:tabnew		key=<nop>
+  macm File.New\ Tab key=<D-T>
+  macm File.Print key=<nop>
+  macm Tools.Make<Tab>:make key=<nop>
+  macm Edit.Find.Find\.\.\.			key=<nop>
 endif
 
 " copy current file name (relative/absolute) to system clipboard (Linux version)

@@ -5,8 +5,6 @@ if has("gui_gtk2")
 endif
 
 " ##### ale #####
-call janus#disable_plugin('supertab', "Using coc.nvim instead")
-call janus#disable_plugin('syntastic', "Using ale instead")
 
 let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_text_changed = 'never'
@@ -38,17 +36,9 @@ let g:javascript_plugin_jsdoc = 1
 let g:markdown_fenced_languages = ['ruby', 'html', 'javascript']
 autocmd BufNewFile,BufReadPost *.md set autoindent
 
-" ##### janus + markdown #####
-" Disables textwidth. See https://github.com/carlhuda/janus/issues/527
-let g:disable_markdown_autostyle = 1
-
 " ##### indentLine #####
 let g:indentLine_enabled = 0
 
-" ##### vim-polyglot #####
-let g:polyglot_disabled = ['go', 'golang'] " Disable vim-polyglot's typescript syntax higlighting to use vim-typescript instead
-
-call janus#disable_plugin('ctrlp', "Using fzf")
 set rtp+=/usr/local/opt/fzf
 
 let g:airline#extensions#branch#enabled = 0

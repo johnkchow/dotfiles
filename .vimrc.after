@@ -12,7 +12,7 @@ set termwinkey=<C-L>
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 map <D-t> :FZF <CR>
 map <D-p> :call fzf#run({'source': $FZF_DEFAULT_COMMAND . ' -g "!**/test/**" -g "!*.test.js"', 'sink': 'e', 'down': '~40%' }) <CR>
-map <Leader>B :Buffers<CR>
+map <D-b> :Buffers<CR>
 map <Leader>P :FZF <C-R>=expand('%:h')<CR>
 map <Leader>p :FZF <C-R>=expand('$PWD')<CR><CR>
 
@@ -184,12 +184,3 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-
-function! SourceIfExists(file)
-  if filereadable(expand(a:file))
-    exe 'source' a:file
-  endif
-endfunction
-
-call SourceIfExists("~/.vimrc.private")
