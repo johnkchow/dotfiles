@@ -37,9 +37,9 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
-if [ -f "/usr/libexec/java_home" ]; then
-  export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-fi
+# if [ -f "/usr/libexec/java_home" ]; then
+#   export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+# fi
 
 export JRUBY_OPTS="-J-Xmn512m -J-Xms2048m -J-Xmx2048m --dev -J-XX:+UseParNewGC -J-XX:+UseConcMarkSweepGC"
 
