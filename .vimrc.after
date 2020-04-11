@@ -16,6 +16,11 @@ map <D-b> :Buffers<CR>
 map <Leader>P :FZF <C-R>=expand('%:h')<CR>
 map <Leader>p :FZF <C-R>=expand('$PWD')<CR><CR>
 
+" ##### vim-gitgutter #####
+" guibg is set to twilight theme
+highlight GitGutterAdd    guifg=#009900 guibg=#34383c ctermfg=2 ctermbg=0
+highlight GitGutterChange guifg=#bbbb00 guibg=#34383c ctermfg=3 ctermbg=0
+highlight GitGutterDelete guifg=#ff2222 guibg=#34383c ctermfg=1 ctermbg=0
 
 "#####################
 "#### NERDTREE ####
@@ -53,7 +58,7 @@ autocmd BufNewFile,BufRead *.flow set syntax=javascript
 map <F2> :cp<CR>
 map <F3> :cn<CR>
 map <D-r> :Dispatch! ctags -R<CR>
-map <Leader>T :tabc<CR>
+nnoremap <leader>T :tabc<CR>
 
 " For autocompletion behavior consistent with terminal
 set wildmode=longest,list
@@ -113,6 +118,9 @@ let g:buffergator_autoexpand_on_split = 0
 let g:buffergator_viewport_split_policy = 'B'
 let g:buffergator_sort_regime = 'mru'
 let g:buffergator_show_full_directory_path = 0
+let g:buffergator_suppress_keymaps=1
+nnoremap <silent> <Leader>b :BuffergatorOpen<CR>
+nnoremap <silent> <Leader>B :BuffergatorClose<CR>
 
 " ##### Taboo ######
 
@@ -120,15 +128,25 @@ let g:buffergator_show_full_directory_path = 0
 set sessionoptions+=tabpages,globals
 
 
+" ##### NERDCommenter ######
+filetype plugin on
+let g:NERDSpaceDelims = 1
+if has("gui_macvim") && has("gui_running")
+  map <D-/> :call NERDComment(0,"Invert")<CR>
+  imap <D-/> <Esc>:call NERDComment(0,"Invert")<CR>i
+else
+  map <leader>/ :call NERDComment(0,"Invert")<CR>
+endif
+
+
 " ###### ALE ######
 
 " NOTE: This only works after plugin is loaded, so cannot add this to
 " .vimrc.before
-nmap <leader>D :ALEStopAllLSPs<CR>
 nmap <leader>F :ALEFix<CR>
-nmap <leader>h :ALEHover<CR>
 
 " ##### coc.nvim #####
+
 " " don't give |ins-completion-menu| messages in the message buffer
 set shortmess+=c
 
@@ -184,3 +202,7 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+
+" ###### rust.vim ######
+let g:rustfmt_autosave = 1

@@ -73,3 +73,15 @@
 [submodule ".janus/nerdtree"]
 	path = .janus/nerdtree
 	url = https://github.com/preservim/nerdtree.git
+[submodule ".janus/nerdcommenter"]
+	path = .janus/nerdcommenter
+	url = https://github.com/preservim/nerdcommenter.git
+[submodule ".janus/vim-buffergator"]
+	path = .janus/vim-buffergator
+	url = https://github.com/jeetsukumaran/vim-buffergator.git
+[submodule ".janus/vim-gitgutter"]
+	path = .janus/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule ".janus/vim-rustfmt"]
+	path = .janus/vim-rustfmt
+	url = https://github.com/alx741/vim-rustfmt.git

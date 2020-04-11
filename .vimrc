@@ -4,6 +4,7 @@ function! SourceIfExists(file)
   endif
 endfunction
 
+
 source ~/.vimrc.before
 call SourceIfExists("~/.vimrc.before.private")
 
@@ -11,13 +12,20 @@ call plug#begin()
 
 call SourceIfExists("~/.vimrc.plugs.private")
 
-Plug '~/.janus/fzf.vim'
 Plug '~/.janus/ack.vim'
 Plug '~/.janus/ale'
 Plug '~/.janus/coc.nvim'
-Plug '~/.janus/vim-airline'
-Plug '~/.janus/vim-dispatch'
+Plug '~/.janus/fzf.vim'
 Plug '~/.janus/nerdtree'
+Plug '~/.janus/nerdcommenter'
+Plug '~/.janus/rust.vim'
+Plug '~/.janus/vim-airline'
+Plug '~/.janus/vim-buffergator'
+Plug '~/.janus/vim-dispatch'
+Plug '~/.janus/vim-gitgutter'
+Plug '~/.janus/vim-obsession'
+Plug '~/.janus/vim-rhubarb'
+Plug '~/.janus/vim-rustfmt'
 
 call plug#end()
 
