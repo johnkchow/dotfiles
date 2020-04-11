@@ -49,9 +49,6 @@
 [submodule ".janus/tsuquyomi"]
 	path = .janus/tsuquyomi
 	url = https://github.com/Quramy/tsuquyomi.git
-[submodule ".janus/typescript-vim"]
-	path = .janus/typescript-vim
-	url = https://github.com/leafgarland/typescript-vim.git
 [submodule ".janus/vim-jsx-typescript"]
 	path = .janus/vim-jsx-typescript
 	url = https://github.com/peitalin/vim-jsx-typescript.git
