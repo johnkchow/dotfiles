@@ -51,24 +51,12 @@ stty -ixon
 alias mvimt="mvim --remote-tab-silent"
 alias be="bundle exec"
 alias jbe="jruby -G --debug -S"
-alias fsd="be foreman start -f Procfile.dev"
 alias ls='ls -G'
 alias ll='ls -hl'
 alias bers="DISABLE_SPRING=true be rails s -b 127.0.0.1"
-alias ag="ag --noheading --nobreak"
 
 export ANDROID_SDK=/Users/johnkchow/Library/Android/sdk
 export PATH=/Users/johnkchow/Library/Android/sdk/platform-tools:$PATH
-
-sa ()
-{
-  eval `ssh-agent -s`
-  for f in `ls -d ~/.ssh/**`; do
-    if ! [[ $f =~ id_rsa$ ]]
-      then ssh-add $f >/dev/null 2>&1
-    fi
-  done
-}
 
 # Requires fzf `brew install fzf`
 fb() {
@@ -99,15 +87,7 @@ cb() {
 }
 
 gpu() {
-  git push origin $(cb)
-}
-
-notify() {
-  terminal-notifier -message "$1" -sound default -title ${2:-Notifier}
-}
-
-agrl() {
-  ag "$@" --ruby --color | less -R
+  git push origin $(cb) "$@"
 }
 
 cleanupLocalBranches() {
