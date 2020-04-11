@@ -6,14 +6,14 @@ if [ -f ~/.envprivate ]; then
   source ~/.envprivate
 fi
 
-# NOTE: /usr/local/bin is for ctags
-PATH=/usr/local/heroku/bin:/usr/local/bin:$HOME/.rbenv/bin:/usr/local/sbin:$PATH
-
 # First run `bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)`
 if [ -f ~/.gvm/scripts/gvm ]; then
   source ~/.gvm/scripts/gvm
 fi
 
+if [ -f ~/.cargo/env ]; then
+  source ~/.cargo/env
+fi
 
 # Node section
 # NOTE: First run `brew install nvm`
