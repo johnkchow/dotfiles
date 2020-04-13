@@ -79,6 +79,6 @@
 [submodule ".janus/vim-gitgutter"]
 	path = .janus/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
-[submodule ".janus/vim-rustfmt"]
-	path = .janus/vim-rustfmt
-	url = https://github.com/alx741/vim-rustfmt.git
+[submodule ".janus/rust.vim"]
+	path = .janus/rust.vim
+	url = git@github.com:rust-lang/rust.vim.git

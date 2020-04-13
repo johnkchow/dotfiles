@@ -4,7 +4,6 @@ function! SourceIfExists(file)
   endif
 endfunction
 
-
 source ~/.vimrc.before
 call SourceIfExists("~/.vimrc.before.private")
 
@@ -25,7 +24,6 @@ Plug '~/.janus/vim-dispatch'
 Plug '~/.janus/vim-gitgutter'
 Plug '~/.janus/vim-obsession'
 Plug '~/.janus/vim-rhubarb'
-Plug '~/.janus/vim-rustfmt'
 
 call plug#end()
 
