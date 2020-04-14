@@ -82,3 +82,6 @@
 [submodule ".janus/rust.vim"]
 	path = .janus/rust.vim
 	url = git@github.com:rust-lang/rust.vim.git
+[submodule ".janus/vim-fugitive"]
+	path = .janus/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
