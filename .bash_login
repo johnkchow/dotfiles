@@ -70,7 +70,7 @@ cb() {
 }
 
 gpu() {
-  git push origin $(cb) "$@"
+  git push origin $(cb) -u "$@"
 }
 
 cleanupLocalBranches() {
