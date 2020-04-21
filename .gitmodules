@@ -85,3 +85,6 @@
 [submodule ".janus/vim-fugitive"]
 	path = .janus/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".zsh-git-prompt"]
+	path = .zsh-git-prompt
+	url = https://github.com/zsh-git-prompt/zsh-git-prompt
