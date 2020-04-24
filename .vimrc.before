@@ -110,7 +110,9 @@ nmap <D-f> :Ack! -g "!**/test*/**" -g "!*.test.js"<space>
 nmap <D-F> :Ack!<space>
 
 if executable('rg')
-  let g:ackprg = 'rg --vimgrep --no-heading --ignore-file ~/.agignore'
+  " NOTE: If the ignore file has many rules or comments, it can actually
+  " drastically slow down the search time
+  let g:ackprg = 'rg --vimgrep --no-heading --ignore-file ~/.ignore-fzf'
 elseif executable('ag')
-  let g:ackprg = 'ag --vimgrep --path-to-ignore ~/.agignore'
+  let g:ackprg = 'ag --vimgrep --path-to-ignore ~/.ignore-fzf'
 endif

@@ -129,7 +129,6 @@ set sessionoptions+=tabpages,globals
 
 
 " ##### NERDCommenter ######
-filetype plugin on
 let g:NERDSpaceDelims = 1
 if has("gui_macvim") && has("gui_running")
   map <D-/> :call NERDComment(0,"Invert")<CR>
@@ -206,3 +205,6 @@ endfunction
 
 " ###### rust.vim ######
 let g:rustfmt_autosave = 1
+let g:rustfmt_fail_silently = 1
+
+filetype plugin indent on " Needs to run before vim-plug
