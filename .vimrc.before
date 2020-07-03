@@ -10,6 +10,7 @@ set numberwidth=3 " Remove extra space in gutter
 set incsearch " Incremental highlight search
 set backupdir^=~/.vim/_backup//    " where to put backup files.
 set directory^=~/.vim/_temp//      " where to put swap files.
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 
 " find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
@@ -71,7 +72,7 @@ let g:ale_linters = {
 \   'rust': [],
 \}
 let g:ale_fixers = {
-\   'ruby': ['rubocop'],
+\   'ruby': [],
 \   'javascript': ['eslint'],
 \}
 

@@ -38,8 +38,9 @@ alias ls='ls -G'
 alias ll='ls -hl'
 alias bers="DISABLE_SPRING=true be rails s -b 127.0.0.1"
 
-export ANDROID_SDK=/Users/johnkchow/Library/Android/sdk
-export PATH=/Users/johnkchow/Library/Android/sdk/platform-tools:$PATH
+# NOTE: Depends on `brew install llvm`
+# Used for clangd
+export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # Requires fzf `brew install fzf`
 fb() {
