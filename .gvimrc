@@ -51,7 +51,8 @@ if has("mac") || has("gui_macvim") || has("gui_mac")
   macm File.New\ Tab key=<D-T>
   macm File.Print key=<nop>
   macm Tools.Make<Tab>:make key=<nop>
-  macm Edit.Find.Find\.\.\.			key=<nop>
+  " macm Edit.Find.Find\.\.\.			key=<nop>
+  macm Edit.Find.Find…  key=<nop>
 endif
 
 " copy current file name (relative/absolute) to system clipboard (Linux version)

@@ -47,7 +47,7 @@ fb() {
   local branches branch
   branches=$(git branch -vv) &&
   branch=$(echo "$branches" | fzf +m) &&
-  echo "$branch" | awk '{print $1}' | sed "s/.* //"
+  echo -n "$branch" | awk '{print $1}' | sed "s/.* //"
 }
 
 fbl() {

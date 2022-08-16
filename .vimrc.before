@@ -10,7 +10,7 @@ set numberwidth=3 " Remove extra space in gutter
 set incsearch " Incremental highlight search
 set backupdir^=~/.vim/_backup//    " where to put backup files.
 set directory^=~/.vim/_temp//      " where to put swap files.
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType tsx,javascript,json setlocal shiftwidth=2 tabstop=2 expandtab
 
 " find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
@@ -98,7 +98,7 @@ let g:indentLine_enabled = 0
 " #### vim-airline ####
 let g:airline#extensions#branch#enabled = 0
 let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#coc#enabled = 0
 
 " ##### FZF ######
 set rtp+=/usr/local/opt/fzf
