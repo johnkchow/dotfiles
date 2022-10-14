@@ -1,42 +1,39 @@
-if [ -f ~/.bashrc ]; then
-  source ~/.bashrc
-fi
+# if [ -f ~/.bashrc ]; then
+#   source ~/.bashrc
+# fi
 
 if [ -f ~/.envprivate ]; then
   source ~/.envprivate
-fi
-
-# First run `bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)`
-if [ -f ~/.gvm/scripts/gvm ]; then
-  source ~/.gvm/scripts/gvm
 fi
 
 if [ -f ~/.cargo/env ]; then
   source ~/.cargo/env
 fi
 
-# Node section
+# This requires `brew install bash-git-prompt`
+if [ -f "/opt/homebrew/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+  __GIT_PROMPT_DIR="/opt/homebrew/opt/bash-git-prompt/share"
+  source "/opt/homebrew/opt/bash-git-prompt/share/gitprompt.sh"
+fi
 
 # NOTE: First run `brew install nodenv`
-eval "$(nodenv init -)"
+# eval "$(nodenv init -)"
+# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# if [ -f "/usr/libexec/java_home" ]; then
-#   export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+# First run `bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)`
+# if [ -f ~/.gvm/scripts/gvm ]; then
+#   source ~/.gvm/scripts/gvm
 # fi
 
-export JRUBY_OPTS="-J-Xmn512m -J-Xms2048m -J-Xmx2048m --dev -J-XX:+UseParNewGC -J-XX:+UseConcMarkSweepGC"
+# export JRUBY_OPTS="-J-Xmn512m -J-Xms2048m -J-Xmx2048m --dev -J-XX:+UseParNewGC -J-XX:+UseConcMarkSweepGC"
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Disables session suspend so that we can use CTRL+s to go back in history search
 stty -ixon
 
 alias mvimt="mvim --remote-tab-silent"
-alias be="bundle exec"
-alias jbe="jruby -G --debug -S"
 alias ls='ls -G'
 alias ll='ls -hl'
-alias bers="DISABLE_SPRING=true be rails s -b 127.0.0.1"
 
 # NOTE: Depends on `brew install llvm`
 # Used for clangd

@@ -14,9 +14,7 @@ call SourceIfExists("~/.vimrc.plugs.private")
 Plug '~/.janus/ack.vim'
 Plug '~/.janus/ale'
 Plug '~/.janus/coc.nvim'
-" fzf.vim is unnecessary, since doing `brew install fzf` bootstraps
-" fzf.vim first
-"Plug '~/.janus/fzf.vim'
+Plug '~/.janus/fzf.vim'
 Plug '~/.janus/nerdtree'
 Plug '~/.janus/nerdcommenter'
 "Plug '~/.janus/rust.vim'

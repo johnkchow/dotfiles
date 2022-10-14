@@ -66,6 +66,8 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_insert_enter = 0
 let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 0
+let g:ale_disable_lsp = 1
 let g:ale_open_list = 0
 let g:ale_linters = {
 \   'ruby': ['rubocop', 'ruby'],
@@ -75,6 +77,9 @@ let g:ale_fixers = {
 \   'ruby': [],
 \   'javascript': ['eslint'],
 \}
+
+
+let g:ale_pattern_options_enabled = 1
 
 augroup CloseLoclistWindowGroup
   autocmd!
@@ -101,7 +106,7 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#coc#enabled = 0
 
 " ##### FZF ######
-set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf
 
 
 "#####################
