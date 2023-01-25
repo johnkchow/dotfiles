@@ -9,10 +9,8 @@ PROMPT='$exit_code %{$fg[yellow]%}%~%{$reset_color%} $(git_super_status)${newlin
 # So that we can copy-paste with comments
 set -k 
 
-if [ -f "~/.bash_profile" ]; then
-  source "~/.bash_profile"
+if [ -f ~/.bash_profile ]; then
+  source ~/.bash_profile
 fi
 
-if [ -f "~/.bash_login" ]; then
-  source "~/.bash_login"
-fi
+source ~/.bash_login
