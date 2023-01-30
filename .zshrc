@@ -14,3 +14,7 @@ if [ -f ~/.bash_profile ]; then
 fi
 
 source ~/.bash_login
+
+if [ -f ~/.zprofile ]; then
+  source ~/.zprofile
+fi

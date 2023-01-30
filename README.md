@@ -11,6 +11,7 @@ git submodule update --init --recursive
 brew install macvim
 brew install fzf
 brew install ripgrep
+brew install hub
 # Node is a dependency for coc.nvim
 brew install node@14 && brew link node@14
 

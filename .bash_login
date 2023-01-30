@@ -16,20 +16,10 @@ if [ -f "/opt/homebrew/opt/bash-git-prompt/share/gitprompt.sh" ]; then
   source "/opt/homebrew/opt/bash-git-prompt/share/gitprompt.sh"
 fi
 
-# NOTE: First run `brew install nodenv`
-# eval "$(nodenv init -)"
-# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# First run `bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)`
-# if [ -f ~/.gvm/scripts/gvm ]; then
-#   source ~/.gvm/scripts/gvm
-# fi
-
-# export JRUBY_OPTS="-J-Xmn512m -J-Xms2048m -J-Xmx2048m --dev -J-XX:+UseParNewGC -J-XX:+UseConcMarkSweepGC"
-
-
 # Disables session suspend so that we can use CTRL+s to go back in history search
 stty -ixon
+
+export FZF_DEFAULT_COMMAND='rg --files'
 
 alias mvimt="mvim --remote-tab-silent"
 alias ls='ls -G'
