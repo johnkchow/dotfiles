@@ -100,3 +100,6 @@
 [submodule ".janus/vista.vim"]
 	path = .janus/vista.vim
 	url = https://github.com/liuchengxu/vista.vim.git
+[submodule "/Users/john_chow/.janus/thrift.vim"]
+	path = /Users/john_chow/.janus/thrift.vim
+	url = https://github.com/solarnz/thrift.vim

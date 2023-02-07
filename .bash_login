@@ -61,6 +61,18 @@ gpu() {
   git push origin $(cb) -u "$@"
 }
 
+gpv() {
+  gh pr view -w
+}
+
+gpc() {
+  gh pr create -w
+}
+
+gpl() {
+  gh pr list --author "@me" -w
+}
+
 cleanupLocalBranches() {
   TMPFILE=${TMPDIR}missing-branches
   cat <<EOT > $TMPFILE
