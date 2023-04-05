@@ -103,3 +103,6 @@
 [submodule "/Users/john_chow/.janus/thrift.vim"]
 	path = /Users/john_chow/.janus/thrift.vim
 	url = https://github.com/solarnz/thrift.vim
+[submodule ".janus/kotlin-vim"]
+	path = .janus/kotlin-vim
+	url = https://github.com/udalov/kotlin-vim.git
