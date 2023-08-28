@@ -30,6 +30,7 @@ alias ll='ls -hl'
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # Requires fzf `brew install fzf`
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fb() {
   local branches branch
   branches=$(git branch -vv) &&
