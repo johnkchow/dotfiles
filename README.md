@@ -20,4 +20,9 @@ brew install bash-git-prompt
 # Step 3: Setup vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Step 4: Git
+git config --global core.fsmonitor true
+git config --global core.untrackedCache true
+git config --global alias.co checkout
 ```
