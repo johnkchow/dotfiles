@@ -2,7 +2,6 @@
 # Step 1: Setup repo
 git init
 git remote add origin git@github.com:johnkchow/dotfiles.git
-git branch -T origin/master
 git submodule update --init --recursive
 
 # Step 2: Important brew packages
@@ -13,7 +12,7 @@ brew install fzf
 brew install ripgrep
 brew install gh
 # Node is a dependency for coc.nvim
-brew install node@14 && brew link node@14
+brew install node@16 && brew link node@16
 
 # if using bash
 brew install bash-git-prompt
